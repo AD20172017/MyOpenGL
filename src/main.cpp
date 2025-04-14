@@ -1,9 +1,8 @@
 #include<iostream>
 #include<GL/glew.h>
 #include <SDL2/SDL.h>
-
-#include "def.h"
-
+#include "Def.h"
+#include "Object.h"
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
@@ -401,5 +400,7 @@ int main(int argc, char** argv)
 	SDL_DestroyWindow(loopdata.mWindow);
 	SDL_Quit();
 
+
+	std::shared_ptr<GLRT::Object> obj=GLRT::Object::acquire();
 	return 0;
 }

@@ -22,6 +22,9 @@
     <Filter Include="源文件\shaders">
       <UniqueIdentifier>{88e76d19-d643-4650-adeb-53d14ed94b81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\base">
+      <UniqueIdentifier>{e92af777-e525-4717-b068-169c3f5b31cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
@@ -42,9 +45,15 @@
     <ClCompile Include="src\Scene.cpp">
       <Filter>源文件\src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Object.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ObjectPool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\def.h">
+    <ClInclude Include="include\Def.h">
       <Filter>头文件\include</Filter>
     </ClInclude>
     <ClInclude Include="include\Camera.h">
@@ -55,6 +64,18 @@
     </ClInclude>
     <ClInclude Include="include\Scene.h">
       <Filter>头文件\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Singleton.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Marcos.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Object.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ObjectPool.h">
+      <Filter>头文件\base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

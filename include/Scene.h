@@ -1,7 +1,8 @@
 #pragma once
+#include "Marcos.h"
 #include "Camera.h"
 #include <iostream>
-namespace GLRT {
+GLRT_BEGIN
 
 	class Scene
 	{
@@ -19,6 +20,6 @@ namespace GLRT {
 
 	};
 
-}
+GLRT_END
 
 
