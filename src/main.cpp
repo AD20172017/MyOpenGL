@@ -400,7 +400,9 @@ int main(int argc, char** argv)
 	SDL_DestroyWindow(loopdata.mWindow);
 	SDL_Quit();
 
-
+	{
 	std::shared_ptr<GLRT::Object> obj=GLRT::Object::acquire();
+	}
+	GLRT::ObjectPool::GetInstance()->clearPool();
 	return 0;
 }

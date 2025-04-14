@@ -36,9 +36,9 @@ private:\
 #define ACQUIRE_FUNC(__TYPE__)                        \
 static std::shared_ptr<__TYPE__> acquire()            \
 {                                          \
-	__TYPE__ p; \
-	std::shared_ptr<__TYPE__> pRet = ObjectPool::GetInstance()->acquire(&p);     \
-	if(!(pRet&&pRet->init())){std::cout<<"acquire failed!!"<<std::endl;return nullptr;}							   \
+	__TYPE__* p=new __TYPE__(); \
+	std::shared_ptr<__TYPE__> pRet = ObjectPool::GetInstance()->acquire(p);     \
+	if(!(pRet&&pRet->init())){std::cout<<" Acquire failed!! CLASS: "<<(#__TYPE__)<<std::endl;return nullptr;}							   \
 	return pRet;								 \
 }
 

@@ -35,7 +35,7 @@ private:
 
 
 public:
-	ObjectPool() {}
+	ObjectPool();
 	virtual ~ObjectPool();
 
 	std::shared_ptr<Object> acquire(Object* obj);

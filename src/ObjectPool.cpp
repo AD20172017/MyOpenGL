@@ -3,41 +3,53 @@
 #include <Object.h>
 
 GLRT_BEGIN
+ObjectPool::ObjectPool() {
+	LOG(std::cout, "ObjectPool");
+}
 
 std::shared_ptr<Object> ObjectPool::acquire(Object* obj) {
-   auto it = m_objectPool.find(obj->GetClassName());
-   if (it == m_objectPool.end()) {
-       m_objectPool[obj->GetClassName()] = std::queue<Object*>();
-   }
-   auto& queue = m_objectPool[obj->GetClassName()];
+	auto it = m_objectPool.find(obj->GetClassName());
+	if (it == m_objectPool.end()) {
+		m_objectPool[obj->GetClassName()] = std::queue<Object*>();
+	}
+	auto& queue = m_objectPool[obj->GetClassName()];
 
-   if (queue.empty()) {
-       return obj->create(obj,[this](Object* obj) { release(obj); });
-   } else {
-       std::shared_ptr<Object> obj(queue.front(), [this](Object* obj) { release(obj); });
-       queue.pop();
-       return obj;
-   }
+	if (queue.empty()) {
+		return obj->create(obj, [this](Object* obj) { release(obj); });
+	}
+	else {
+		std::shared_ptr<Object> obj(queue.front(), [this](Object* obj) { release(obj); });
+		queue.pop();
+		return obj;
+	}
 }
 
 void ObjectPool::release(Object* obj) {
-   auto& queue = m_objectPool[obj->GetClassName()];
-   queue.push(obj);
+	auto name = obj->GetClassName();
+	LOG_DEBUG(std::cout, "\nObjectPool::release():\nrelease CLASS: " << name);
+	auto& queue = m_objectPool[name];
+	queue.push(obj);
 }
 
 
 void ObjectPool::clearPool() {
-	static std::string clearStr="cleared";
+
 	for (auto& [name, queue] : m_objectPool) {
 		while (!queue.empty()) {
-			delete queue.front();
+			Object* tmp = queue.front();
 			queue.pop();
+			if (tmp == nullptr) {
+				continue;
+			}
+			delete tmp;
 		}
-		LOG(std::cout, std::string(name) + clearStr);
+		LOG_DEBUG(std::cout, "\nObjectPool::clearPool():\nCleared CLASS:" << name);
 	}
+	m_objectPool.clear();
 }
 
 ObjectPool::~ObjectPool() {
+	LOG_DEBUG(std::cout, "\nObjectPool::~ObjectPool()\n");
 	this->clearPool();
 }
 
