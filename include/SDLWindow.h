@@ -10,8 +10,10 @@ public:
 	ACQUIRE_FUNC(SDLWindow)
 
 	bool init()override {
-		return true;
+		return false;
 	}
+
+private:
 };
 
 GLRT_END

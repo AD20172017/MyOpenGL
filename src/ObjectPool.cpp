@@ -26,6 +26,7 @@ std::shared_ptr<Object> ObjectPool::acquire(Object* obj) {
 }
 
 void ObjectPool::release(Object* obj) {
+	ASSERT(obj, "ObjectPool::release(): obj is nullptr");
 	auto name = obj->GetClassName();
 	LOG_DEBUG(std::cout, "\nObjectPool::release():\nrelease CLASS: " << name);
 	auto& queue = m_objectPool[name];
