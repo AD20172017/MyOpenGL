@@ -8,6 +8,7 @@ ObjectPool::ObjectPool() {
 }
 
 std::shared_ptr<Object> ObjectPool::acquire(Object* obj) {
+	ASSERT(obj, "ObjectPool::acquire(): obj is nullptr");
 	auto it = m_objectPool.find(obj->GetClassName());
 	if (it == m_objectPool.end()) {
 		m_objectPool[obj->GetClassName()] = std::queue<Object*>();

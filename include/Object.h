@@ -37,7 +37,7 @@ private:\
 static std::shared_ptr<__TYPE__> acquire()            \
 {                                          \
 	__TYPE__* p=new __TYPE__(); \
-	std::shared_ptr<__TYPE__> pRet = ObjectPool::GetInstance()->acquire(p);     \
+	std::shared_ptr<__TYPE__> pRet = std::dynamic_pointer_cast<__TYPE__>(ObjectPool::GetInstance()->acquire(p));     \
 	if(!(pRet&&pRet->init())){std::cout<<" Acquire failed!! CLASS: "<<(#__TYPE__)<<std::endl;return nullptr;}							   \
 	return pRet;								 \
 }

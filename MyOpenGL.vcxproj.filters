@@ -51,6 +51,9 @@
     <ClCompile Include="src\ObjectPool.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\SDLWindow.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Def.h">
@@ -76,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="include\ObjectPool.h">
       <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SDLWindow.h">
+      <Filter>头文件\include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

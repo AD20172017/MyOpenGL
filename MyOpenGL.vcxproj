@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\SDLWindow.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Hittable.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="include\Marcos.h" />
     <ClInclude Include="include\Object.h" />
     <ClInclude Include="include\Scene.h" />
+    <ClInclude Include="include\SDLWindow.h" />
     <ClInclude Include="include\Singleton.h" />
     <ClInclude Include="include\ObjectPool.h" />
   </ItemGroup>

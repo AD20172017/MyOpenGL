@@ -3,6 +3,7 @@
 #include <SDL2/SDL.h>
 #include "Def.h"
 #include "Object.h"
+#include "SDLWindow.h"
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
@@ -401,7 +402,7 @@ int main(int argc, char** argv)
 	SDL_Quit();
 
 	{
-	std::shared_ptr<GLRT::Object> obj=GLRT::Object::acquire();
+	auto obj=GLRT::SDLWindow::acquire();
 	}
 	GLRT::ObjectPool::GetInstance()->clearPool();
 	return 0;
