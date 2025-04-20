@@ -80,6 +80,7 @@ public:
 	//释放
 	//void release();
 
+	virtual bool clear() { return true; }
 
 
 	//友元
@@ -93,6 +94,7 @@ protected:
 	}
 	//声明命名空间
 	using std::enable_shared_from_this<Object>::shared_from_this;
+	bool isValid=false;
 
 
 

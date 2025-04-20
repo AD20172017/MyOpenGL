@@ -14,19 +14,21 @@ std::shared_ptr<Object> ObjectPool::acquire(Object* obj) {
 		m_objectPool[obj->GetClassName()] = std::queue<Object*>();
 	}
 	auto& queue = m_objectPool[obj->GetClassName()];
-
+	std::shared_ptr<Object> objPtr;
 	if (queue.empty()) {
-		return obj->create(obj, [this](Object* obj) { release(obj); });
+		objPtr=obj->create(obj, [this](Object* obj) { release(obj); });
 	}
 	else {
-		std::shared_ptr<Object> obj(queue.front(), [this](Object* obj) { release(obj); });
+		objPtr= std::shared_ptr<Object>(queue.front(), [this](Object* obj) { release(obj); });
 		queue.pop();
-		return obj;
 	}
+	objPtr->isValid = true;
+	return objPtr;
 }
 
 void ObjectPool::release(Object* obj) {
 	ASSERT(obj, "ObjectPool::release(): obj is nullptr");
+	ASSERT(obj->clear(), "ObjectPool::release(): obj clear failed");
 	auto name = obj->GetClassName();
 	LOG_DEBUG(std::cout, "\nObjectPool::release():\nrelease CLASS: " << name);
 	auto& queue = m_objectPool[name];

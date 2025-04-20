@@ -28,7 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
-    <None Include="shaders\RT.fs">
+    <None Include="src\Shaders\RT.frag">
       <Filter>源文件\shaders</Filter>
     </None>
   </ItemGroup>
@@ -52,6 +52,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\SDLWindow.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Surface.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WindowManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -82,6 +88,51 @@
     </ClInclude>
     <ClInclude Include="include\SDLWindow.h">
       <Filter>头文件\include</Filter>
+    </ClInclude>
+    <ClInclude Include="test\SDLTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="test\SDLWinTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Surface.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="test\SDLSufaceTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Event.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Types.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\EventManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Coordinator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\EntityManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\ComponentManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\ComponentArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\System.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\SystemManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\WindowManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="test\ECSTest.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

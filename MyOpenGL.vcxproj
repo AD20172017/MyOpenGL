@@ -26,10 +26,12 @@
     <ClCompile Include="src\Object.cpp" />
     <ClCompile Include="src\ObjectPool.cpp" />
     <ClCompile Include="src\Scene.cpp" />
+    <ClCompile Include="src\Surface.cpp" />
+    <ClCompile Include="src\WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
-    <None Include="shaders\RT.fs" />
+    <None Include="src\Shaders\RT.frag" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Camera.h" />
@@ -39,8 +41,23 @@
     <ClInclude Include="include\Object.h" />
     <ClInclude Include="include\Scene.h" />
     <ClInclude Include="include\SDLWindow.h" />
+    <ClInclude Include="include\Surface.h" />
+    <ClInclude Include="include\WindowManager.h" />
+    <ClInclude Include="src\ECS\ComponentArray.h" />
+    <ClInclude Include="src\ECS\ComponentManager.h" />
+    <ClInclude Include="src\ECS\Coordinator.h" />
+    <ClInclude Include="src\ECS\EntityManager.h" />
+    <ClInclude Include="src\ECS\Event.h" />
+    <ClInclude Include="src\ECS\EventManager.h" />
+    <ClInclude Include="src\ECS\System.h" />
+    <ClInclude Include="src\ECS\SystemManager.h" />
+    <ClInclude Include="src\ECS\Types.h" />
+    <ClInclude Include="test\ECSTest.h" />
+    <ClInclude Include="test\SDLSufaceTest.h" />
+    <ClInclude Include="test\SDLWinTest.h" />
     <ClInclude Include="include\Singleton.h" />
     <ClInclude Include="include\ObjectPool.h" />
+    <ClInclude Include="test\SDLTest.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -100,15 +117,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\include;D:\17656\Documents\GameEngine\MyOpenGL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\ECS;$(SolutionDir)Dependencies\include;$(SolutionDir)include;$(SolutionDir)Dependencies\SDL_image-release-2.8.8\src;$(SolutionDir)test;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;shell32.lib;glew32s.lib;gdi32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;shell32.lib;glew32s.lib;gdi32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;glad.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>/NODEFAULTLIB:msvcrt.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
