@@ -10,6 +10,13 @@ ECS_BEGIN
 class Coordinator
 {
 public:
+
+	static Coordinator& GetInstance()
+	{
+		static Coordinator instance;
+		return instance;
+	}
+
 	void Init()
 	{
 		mComponentManager = std::make_unique<ComponentManager>();
@@ -27,11 +34,11 @@ public:
 
 	void DestroyEntity(Entity entity)
 	{
-		//回收entity
+		//鍥炴敹entity
 		mEntityManager->DestroyEntity(entity);
 		//
 		mComponentManager->EntityDestroyed(entity);
-		//通知每个系统,entity被销毁了,移除entity
+		//閫氱煡姣忎釜绯荤粺,entity琚攢姣佷簡,绉婚櫎entity
 		mSystemManager->EntityDestroyed(entity);
 	}
 

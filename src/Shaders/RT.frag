@@ -1,11 +1,11 @@
 #version 330 core
 precision highp float;
-
+//指定输出在帧缓存的内存布局
 layout (location = 0) out vec4 out_SumColor;
 layout (location = 1) out vec4 out_RayData0;
 layout (location = 2) out vec4 out_RayData1;
 layout (location = 3) out vec4 out_RayData2;
-
+//Ray
 struct Ray{
     vec3 origin;
     vec3 dir;
@@ -20,7 +20,7 @@ void Ray_Store(struct Ray ray);
 void Ray_Update(inout struct Ray ray, vec3 origin, vec3 dir, vec3 attenuation);
 void Ray_Transform(inout struct Ray ray, mat4 transform);
 
-
+//Camera
 struct Camera{
     vec3 pos;
     vec3 BL_Corner;
@@ -34,7 +34,7 @@ struct Camera{
     float t1;
 };
 void Camera_GenRay(out struct Ray ray);
-
+//Vertex
 struct Vertex{
     vec3 pos;
     vec3 normal;
@@ -46,6 +46,7 @@ void Vertex_Interpolate(vec3 abg, struct Vertex A, struct Vertex B, struct Verte
 void Vertex_Transform(inout struct Vertex vert, mat4 transform);
 void Vertex_Transform(inout struct Vertex vert, mat4 transform , mat3 normTfm);
 
+//记录hit
 struct HitRst{// 11
     bool hit;
     struct Vertex vertex;
@@ -53,7 +54,7 @@ struct HitRst{// 11
 	float isMatCoverable;
 };
 struct HitRst HitRst_InValid = struct HitRst(false, Vertex_InValid, -1, 1);
-
+//全局变量
 uniform sampler2D SumColor;
 uniform sampler2D RayData0;
 uniform sampler2D RayData1;
@@ -102,6 +103,7 @@ const float TexT_Skybox       = 2.0;
 int rdCnt = 0;
 in vec2 TexCoords;
 
+//堆栈
 float _Stack[35];
 int _Stack_mTop = -1;
 bool Stack_Empty();
@@ -123,6 +125,7 @@ void Stack_Pop(out struct Ray ray);
 void Stack_Pop(out struct Vertex vert); 
 void Stack_Pop(out struct HitRst hitRst);
 
+//Rand
 float RandXY(float x, float y);// [0.0, 1.0)
 float Rand();// [0.0, 1.0)
 vec2 RandInSquare();

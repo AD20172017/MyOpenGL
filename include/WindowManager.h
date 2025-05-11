@@ -1,7 +1,7 @@
 #pragma once
 #include "Marcos.h"
 #include <string>
-//Ææ¹ÖµÄË³Ğò
+//å¥‡æ€ªçš„é¡ºåº
 #include <glad/glad.h>
 
 #include <GLFW/glfw3.h>

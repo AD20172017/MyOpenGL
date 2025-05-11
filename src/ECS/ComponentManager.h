@@ -38,7 +38,7 @@ public:
 	{
 		GetComponentArray<T>()->InsertData(entity, component);
 	}
-	//×é¼şÒ²ÊÇÒ»¸öÊµÀı
+	//ç»„ä»¶ä¹Ÿæ˜¯ä¸€ä¸ªå®ä¾‹
 	template<typename T>
 	void RemoveComponent(Entity entity)
 	{
@@ -64,7 +64,7 @@ public:
 private:
 	std::unordered_map<const char*, ComponentType> mComponentTypes{};
 	std::unordered_map<const char*, std::shared_ptr<IComponentArray>> mComponentArrays{};
-	//¼ÈÊÇidÒ²ÊÇ¼ÆÊı,Ë³Ğò±éÀú×é¼ş
+	//æ—¢æ˜¯idä¹Ÿæ˜¯è®¡æ•°,é¡ºåºéå†ç»„ä»¶
 	ComponentType mNextComponentType{};
 
 

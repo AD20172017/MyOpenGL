@@ -4,11 +4,11 @@
 #include <functional>
 #include <ObjectPool.h>
 #include <iostream>
-
+#include <Windows.h>
 GLRT_BEGIN
-//Ê¹ÓÃÊ±Ğè×¢Òâ×îºóÒ»ĞĞĞèÒª¼Ópublic
-//Íâ²¿µ÷ÓÃÊ¹ÓÃGLASS::Ptr
-//objectÀà²»ÄÜ×Ô¼ºnew³öÀ´
+//ä½¿ç”¨æ—¶éœ€æ³¨æ„æœ€åä¸€è¡Œéœ€è¦åŠ public
+//å¤–éƒ¨è°ƒç”¨ä½¿ç”¨GLASS::Ptr
+//objectç±»ä¸èƒ½è‡ªå·±newå‡ºæ¥
 #define OBJECT_SETUP(CLASS) \
 public:\
 	typedef std::shared_ptr<CLASS> Ptr;\
@@ -24,14 +24,14 @@ protected:\
 private:\
 	virtual Ptr create(CLASS* V,const std::function<void(Object*)> & lambda) { return Ptr(V, lambda);}
 
-//»¹ÊÇ²»ÒªĞ´ËÀ
+//è¿˜æ˜¯ä¸è¦å†™æ­»
 //virtual Ptr create(const std::function<void()>& lambda) { return std::make_shared<CLASS>(new CLASS(), [lambda](CLASS* obj) { ObjectPool::GetInstance()->release(obj)}); }
 
 
-//PS:ÒªÏëÓ²ĞÔ±£Ö¤³ÉÔ±º¯ÊıÖ»±»Ò»¸öÓÑÔªÀà·ÃÎÊ,¸Ã³ÉÔ±º¯ÊıµÄÆÕÍ¨ÀàÒ²²»ÄÜ·ÃÎÊÄÇ¾ÍÖ»ÄÜÉùÃ÷static»òÕßÎ¯ÍĞ,ÊµÔÚÌ«Âé·³ÁË,ÒÔÉÏµÄcreate²»ÄÜÓ²ĞÔ±£Ö¤,ĞèÒª×Ô¼º×Ô¾õ
+//PS:è¦æƒ³ç¡¬æ€§ä¿è¯æˆå‘˜å‡½æ•°åªè¢«ä¸€ä¸ªå‹å…ƒç±»è®¿é—®,è¯¥æˆå‘˜å‡½æ•°çš„æ™®é€šç±»ä¹Ÿä¸èƒ½è®¿é—®é‚£å°±åªèƒ½å£°æ˜staticæˆ–è€…å§”æ‰˜,å®åœ¨å¤ªéº»çƒ¦äº†,ä»¥ä¸Šçš„createä¸èƒ½ç¡¬æ€§ä¿è¯,éœ€è¦è‡ªå·±è‡ªè§‰
 
 
-//ObjectPool¹ÜÀíµÄ¶ÔÏóÊ¹ÓÃÒ»ÏÂÃüÁî´´½¨
+//ObjectPoolç®¡ç†çš„å¯¹è±¡ä½¿ç”¨ä¸€ä¸‹å‘½ä»¤åˆ›å»º
 
 #define ACQUIRE_FUNC(__TYPE__)                        \
 static std::shared_ptr<__TYPE__> acquire()            \
@@ -54,7 +54,7 @@ template <typename T>
 std::shared_ptr<const T> ToCPtr(const T* op) {
 	return std::shared_ptr<const T>(op, T::ProtectedDelete);
 }
-//×ÓÀàµÄ¹¹Ôìº¯ÊıÎªprotected,¼´²»ÄÜÍâ²¿new³öÀ´,Ö»ÄÜÊ¹ÓÃObjectPool::acquire()À´´´½¨
+//å­ç±»çš„æ„é€ å‡½æ•°ä¸ºprotected,å³ä¸èƒ½å¤–éƒ¨newå‡ºæ¥,åªèƒ½ä½¿ç”¨ObjectPool::acquire()æ¥åˆ›å»º
 class Object :public std::enable_shared_from_this<Object>
 {
 	OBJECT_SETUP(Object)
@@ -62,28 +62,28 @@ public:
 
 	ACQUIRE_FUNC(Object)
 
-		//ÓÑÔªº¯Êı
+		//å‹å…ƒå‡½æ•°
 	template <typename T>
 	friend std::shared_ptr<T> ToPtr(T* op);
 	template <typename T>
 	friend std::shared_ptr<const T> ToCPtr(const T* op);
 
-	//×ÓÀàÄÜ±»ObjectPool·ÃÎÊ²¢´´½¨Âğ
+	//å­ç±»èƒ½è¢«ObjectPoolè®¿é—®å¹¶åˆ›å»ºå—
 	//friend class ObjectPool;
 
 
 	//CREATE_FUNC(Object);
 
 	virtual bool init() { return true; }
-	//±£Áô
+	//ä¿ç•™
 	//void retain();
-	//ÊÍ·Å
+	//é‡Šæ”¾
 	//void release();
 
 	virtual bool clear() { return true; }
 
 
-	//ÓÑÔª
+	//å‹å…ƒ
 	//friend class AutoreleasePool;
 
 	//virtual ~Object() {}
@@ -92,7 +92,7 @@ protected:
 	static void ProtectedDelete(const Object* op) {
 		delete op;
 	}
-	//ÉùÃ÷ÃüÃû¿Õ¼ä
+	//å£°æ˜å‘½åç©ºé—´
 	using std::enable_shared_from_this<Object>::shared_from_this;
 	bool isValid=false;
 

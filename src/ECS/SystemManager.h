@@ -50,8 +50,8 @@ public:
 			auto const& type = pair.first;
 			auto const& system = pair.second;
 			auto const& systemSignature = mSignatures[type];
-			//set²»ĞèÒªÅĞ¶ÏÊÇ·ñ´æÔÚ,¼´Ê¹²»´æÔÚÊ¹ÓÃeraseÒ²²»»á±¨´í
-			//ËûÕâ¸öÃüÃûºÃÆæ¹Ö,¼ÈÈ»entityµÄÇ©Ãû¸Ä±äÁË,
+			//setä¸éœ€è¦åˆ¤æ–­æ˜¯å¦å­˜åœ¨,å³ä½¿ä¸å­˜åœ¨ä½¿ç”¨eraseä¹Ÿä¸ä¼šæŠ¥é”™
+			//ä»–è¿™ä¸ªå‘½åå¥½å¥‡æ€ª,æ—¢ç„¶entityçš„ç­¾åæ”¹å˜äº†,
 			if ((entitySignature & systemSignature) == systemSignature)
 			{
 				system->mEntities.insert(entity);
@@ -64,9 +64,9 @@ public:
 	}
 
 private:
-	//Î¬»¤Ã¿¸öÏµÍ³µÄÇ©Ãû,¼´Ã¿¸öÏµÍ³ËùĞèµÄ×é¼şÀàĞÍ
+	//ç»´æŠ¤æ¯ä¸ªç³»ç»Ÿçš„ç­¾å,å³æ¯ä¸ªç³»ç»Ÿæ‰€éœ€çš„ç»„ä»¶ç±»å‹
 	std::unordered_map<const char*, Signature> mSignatures{};
-	//Î¬»¤Ã¿¸öÏµÍ³µÄÊµÀı
+	//ç»´æŠ¤æ¯ä¸ªç³»ç»Ÿçš„å®ä¾‹
 	std::unordered_map<const char*, std::shared_ptr<System>> mSystems{};
 };
 ECS_END

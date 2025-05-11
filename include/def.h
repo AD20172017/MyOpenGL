@@ -5,24 +5,24 @@
 
 #define CONFIG_DEF const
 
-// ¼Æ»®ÕâÀïÖ»·ÅÒ»Ğ©²ÎÊı¶¨Òå
+// è®¡åˆ’è¿™é‡Œåªæ”¾ä¸€äº›å‚æ•°å®šä¹‰
 
 namespace Config {
 
-	// ´°¿Ú²ÎÊı
+	// çª—å£å‚æ•°
 	CONFIG_DEF int WindowWidth = 720;
 	CONFIG_DEF int WindowHeight = 400;
 
-	// Êó±ê²ÎÊı
+	// é¼ æ ‡å‚æ•°
 	CONFIG_DEF float MouseSensitivity = 0.01f;
 
-	// Shader Â·¾¶
+	// Shader è·¯å¾„
 	CONFIG_DEF std::string ShaderRootDir = "../shaders/";
-	// °´¼üÓ³Éä
+	// æŒ‰é”®æ˜ å°„
 	//CONFIG_DEF size_t moveKey[] = { GLFW_KEY_S, GLFW_KEY_W, GLFW_KEY_D, GLFW_KEY_A, GLFW_KEY_E, GLFW_KEY_Q };
 	//CONFIG_DEF size_t arrowKey[] = { GLFW_KEY_DOWN, GLFW_KEY_UP, GLFW_KEY_RIGHT, GLFW_KEY_LEFT, GLFW_KEY_PAGE_DOWN, GLFW_KEY_PAGE_UP };
 
-	// ÆäËû²ÎÊı¿ÉÒÔ¼ÌĞøÌí¼Ó...
+	// å…¶ä»–å‚æ•°å¯ä»¥ç»§ç»­æ·»åŠ ...
 };
 
 

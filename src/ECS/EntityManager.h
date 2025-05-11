@@ -46,16 +46,16 @@ public:
 
 	Signature GetSignature(Entity entity)
 	{
-		//Îª¼Ù¾ÍÅ×³ö´íÎó
+		//ä¸ºå‡å°±æŠ›å‡ºé”™è¯¯
 		assert(entity < MAX_ENTITIES && "Entity out of range.");
 
 		return mSignatures[entity];
 	}
 
 private:
-	//¹ÜÀí¿ÉÒÔ·Ö·¢µÄÊµÌå(id),¼´±£Ö¤ÊµÌåµÄÎ¨Ò»ĞÔ
+	//ç®¡ç†å¯ä»¥åˆ†å‘çš„å®ä½“(id),å³ä¿è¯å®ä½“çš„å”¯ä¸€æ€§
 	std::queue<Entity> mAvailableEntities{};
-	//Ã¿¸öÊµÀıµÄÇ©Ãû,Í¨¹ımSignatures[Entity]»ñÈ¡
+	//æ¯ä¸ªå®ä¾‹çš„ç­¾å,é€šè¿‡mSignatures[Entity]è·å–
 	std::array<Signature, MAX_ENTITIES> mSignatures{};
 	uint32_t mLivingEntityCount{};
 };

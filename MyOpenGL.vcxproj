@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\KeyEvent.h" />
+    <ClCompile Include="src\Core\Log.cpp" />
     <ClCompile Include="src\SDLWindow.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Hittable.cpp" />
@@ -30,6 +32,7 @@
     <ClCompile Include="src\WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
     <None Include="README.md" />
     <None Include="src\Shaders\RT.frag" />
   </ItemGroup>
@@ -43,6 +46,10 @@
     <ClInclude Include="include\SDLWindow.h" />
     <ClInclude Include="include\Surface.h" />
     <ClInclude Include="include\WindowManager.h" />
+    <ClInclude Include="src\Core\Base.h" />
+    <ClInclude Include="src\Core\Event.h" />
+    <ClInclude Include="src\Core\KeyCode.h" />
+    <ClInclude Include="src\Core\Log.h" />
     <ClInclude Include="src\ECS\ComponentArray.h" />
     <ClInclude Include="src\ECS\ComponentManager.h" />
     <ClInclude Include="src\ECS\Coordinator.h" />
@@ -117,8 +124,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\ECS;$(SolutionDir)Dependencies\include;$(SolutionDir)include;$(SolutionDir)Dependencies\SDL_image-release-2.8.8\src;$(SolutionDir)test;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\spdlog\include;$(SolutionDir)src\ECS;$(SolutionDir)Dependencies\include;$(SolutionDir)include;$(SolutionDir)Dependencies\SDL_image-release-2.8.8\src;$(SolutionDir)Dependencies\include\glm;$(SolutionDir)test;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/utf-8</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

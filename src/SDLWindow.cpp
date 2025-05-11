@@ -3,7 +3,7 @@ GLRT_BEGIN
 bool SDLWindow::setWindow(const char* title = "My SDLWindow", int x = SDL_WINDOWPOS_CENTERED, int y = SDL_WINDOWPOS_CENTERED, int w = 1280, int h = 720, SDL_WindowFlags flags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI))
 {
 	if (!this->isValid) {
-		LOG_ERROR(std::cerr, "SDLWindow::setWindow(): Window is not valid");
+		LOG_ERROR( "SDLWindow::setWindow(): Window is not valid");
 		return false;
 	}
 	this->m_width = w;
@@ -26,7 +26,7 @@ int SDLWindow::updateWindowSurface()
 Surface::Ptr SDLWindow::getWindowSurface()
 {
 	if (!m_Window) {
-		LOG_ERROR(std::cerr, "SDLWindow::getWindowSurface(): Window is not valid");
+		LOG_ERROR("SDLWindow::getWindowSurface(): Window is not valid");
 		return nullptr;
 	}
 	auto tmp=Surface::acquire();

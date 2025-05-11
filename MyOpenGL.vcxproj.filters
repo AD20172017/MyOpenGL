@@ -31,6 +31,7 @@
     <None Include="src\Shaders\RT.frag">
       <Filter>源文件\shaders</Filter>
     </None>
+    <None Include=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -58,6 +59,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\WindowManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\Log.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\KeyEvent.h">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -132,6 +139,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="test\ECSTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Log.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Base.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Event.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\KeyCode.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,11 +8,11 @@
 GLRT_BEGIN
 
 
-// ObjectPool¶ÀÏíobject¶ÔÏóµÄ´´½¨È¨£¬ÔÚobjectÖÐÉùÃ÷ÓÑÔªÀ´·ÃÎÊobject½Ó¿ÚµÄ¹¹Ôìº¯Êý
-//1.»ùÀàÖÐÉùÃ÷ÓÑÔªÀ´·ÃÎÊobjectµÄ²¢´´½¨½Ó¿Ú
-//2.¹¤³§·½·¨£¬¾²Ì¬¹¤³§·½·¨
-//3.¿ËÂ¡Ô­ÐÍ
-//4.×ÓÀàÉùÃ÷objectpool
+// ObjectPoolç‹¬äº«objectå¯¹è±¡çš„åˆ›å»ºæƒï¼Œåœ¨objectä¸­å£°æ˜Žå‹å…ƒæ¥è®¿é—®objectæŽ¥å£çš„æž„é€ å‡½æ•°
+//1.åŸºç±»ä¸­å£°æ˜Žå‹å…ƒæ¥è®¿é—®objectçš„å¹¶åˆ›å»ºæŽ¥å£
+//2.å·¥åŽ‚æ–¹æ³•ï¼Œé™æ€å·¥åŽ‚æ–¹æ³•
+//3.å…‹éš†åŽŸåž‹
+//4.å­ç±»å£°æ˜Žobjectpool
 class Object;
 
 class ObjectPool : public Singleton<ObjectPool>

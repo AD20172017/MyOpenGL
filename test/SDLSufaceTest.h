@@ -9,14 +9,14 @@ using namespace std;
 namespace TEST
 {
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	void initlize();
 	void clear();
-	//»æÖÆ
+	//ç»˜åˆ¶
 	void draw(Surface::Ptr screen);
-	//¸üÐÂ
+	//æ›´æ–°
 	void update(float dt);
-	//ÊÂ¼þ´¦Àí
+	//äº‹ä»¶å¤„ç†
 	void handleEvents();
 
 	bool g_bRunning = true;
@@ -30,29 +30,29 @@ namespace TEST
 			Uint32 nextTick = 0u;
 			Uint32 lastTick = 0u;
 			int currentFrame = 0;
-			//³õÊ¼»¯È«²¿×ÓÏµÍ³
+			//åˆå§‹åŒ–å…¨éƒ¨å­ç³»ç»Ÿ
 			SDL_Init(SDL_INIT_EVERYTHING);
 			IMG_Init(IMG_INIT_PNG);
-			//´´½¨´°¿Ú
+			//åˆ›å»ºçª—å£
 			SDLWindow::Ptr window = SDLWindow::acquire();
 			window->setWindow("SDL_EngineTest", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 480, SDL_WINDOW_SHOWN);
-			//»ñÈ¡´°¿Ú¶ÔÓ¦µÄsurface
+			//èŽ·å–çª—å£å¯¹åº”çš„surface
 			Surface::Ptr screen = window->getWindowSurface();
 
 			initlize();
-			//ÓÎÏ·Ñ­»·
+			//æ¸¸æˆå¾ªçŽ¯
 			while (g_bRunning)
 			{
 				Uint32 currentTick = SDL_GetTicks();
 				if (currentTick >= nextTick)
 				{
-					//Ö¡ÂÊ¹Ì¶¨Îª·½±ãµ÷ÊÔ
+					//å¸§çŽ‡å›ºå®šä¸ºæ–¹ä¾¿è°ƒè¯•
 					float dt = secondsPerFrame;
 					time += (currentTick - lastTick) / 1000.f;
 
 					lastTick = currentTick;
 					nextTick = lastTick + (Uint32)(secondsPerFrame * 1000);
-					//ÏÔÊ¾µ±Ç°Ö¡Êý
+					//æ˜¾ç¤ºå½“å‰å¸§æ•°
 					if (time >= 1.f)
 					{
 						time -= 1.f;
@@ -103,10 +103,13 @@ namespace TEST
 	{
 	}
 
+	void clear() {
+
+	}
 	void handleEvents()
 	{
 		SDL_Event event = {};
-		//¶ÔÊÂ¼þ½øÐÐÂÖÑ¯
+		//å¯¹äº‹ä»¶è¿›è¡Œè½®è¯¢
 		while (SDL_PollEvent(&event))
 		{
 			switch (event.type)

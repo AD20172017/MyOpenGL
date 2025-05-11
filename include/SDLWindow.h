@@ -19,7 +19,7 @@ public:
 	}
 	bool clear()override {
 		if (m_Window == nullptr) {
-			LOG_ERROR(std::cerr, "SDLWindow::clear(): Window is not valid");
+			LOG_ERROR("SDLWindow::clear(): Window is not valid");
 			return false;
 		}
 		SDL_DestroyWindow(m_Window);
@@ -29,22 +29,22 @@ public:
 	bool setWindow(const char* title,int x, int y, int w, int h, SDL_WindowFlags flags);
 
 	int updateWindowSurface();
-	//»ñµÃ´°¿ÚµÄsurface
-	//½« typedef ¶¨ÒåÔÚÒ»¸öÃüÃû¿Õ¼äÖĞ£¬È»ºóÔÚĞèÒªµÄµØ·½Ê¹ÓÃ¸ÃÃüÃû¿Õ¼ä¡£
+	//è·å¾—çª—å£çš„surface
+	//å°† typedef å®šä¹‰åœ¨ä¸€ä¸ªå‘½åç©ºé—´ä¸­ï¼Œç„¶ååœ¨éœ€è¦çš„åœ°æ–¹ä½¿ç”¨è¯¥å‘½åç©ºé—´ã€‚
 	Surface::Ptr getWindowSurface();
-	//ÏÔÊ¾´°¿Ú
+	//æ˜¾ç¤ºçª—å£
 	void showWindow();
-	//Òş²Ø´°¿Ú
+	//éšè—çª—å£
 	void hideWindow();
 
 
-	//»ñµÃ´°¿Ú´óĞ¡
+	//è·å¾—çª—å£å¤§å°
 	//Size getWindowSize()const;
-	//»ñµÃ´°¿ÚÕæÊµ´óĞ¡
+	//è·å¾—çª—å£çœŸå®å¤§å°
 	//Size getRealWindowSize()const;
-	//¸üĞÂ´°¿ÚÎ»ÖÃ²¢·µ»Ø
+	//æ›´æ–°çª—å£ä½ç½®å¹¶è¿”å›
 	//SDL_Point getWindowPosition();
-	//Renderer×÷ÎªÓÑÔª
+	//Rendererä½œä¸ºå‹å…ƒ
 
 private:
 	SDL_Window* m_Window = nullptr;

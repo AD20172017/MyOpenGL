@@ -7,7 +7,7 @@ ECS_BEGIN
 class Event {
 public:
 	Event() = delete;
-
+	
 	explicit Event(EventType type) : m_type(type) {}
 
 	template<typename T>

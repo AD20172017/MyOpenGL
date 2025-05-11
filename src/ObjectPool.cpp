@@ -4,7 +4,8 @@
 
 GLRT_BEGIN
 ObjectPool::ObjectPool() {
-	LOG(std::cout, "ObjectPool");
+	::Core::Log::init();
+	LOG_TRACE("ObjectPool");
 }
 
 std::shared_ptr<Object> ObjectPool::acquire(Object* obj) {
@@ -16,10 +17,10 @@ std::shared_ptr<Object> ObjectPool::acquire(Object* obj) {
 	auto& queue = m_objectPool[obj->GetClassName()];
 	std::shared_ptr<Object> objPtr;
 	if (queue.empty()) {
-		objPtr=obj->create(obj, [this](Object* obj) { release(obj); });
+		objPtr = obj->create(obj, [this](Object* obj) { release(obj); });
 	}
 	else {
-		objPtr= std::shared_ptr<Object>(queue.front(), [this](Object* obj) { release(obj); });
+		objPtr = std::shared_ptr<Object>(queue.front(), [this](Object* obj) { release(obj); });
 		queue.pop();
 	}
 	objPtr->isValid = true;
@@ -30,9 +31,9 @@ void ObjectPool::release(Object* obj) {
 	ASSERT(obj, "ObjectPool::release(): obj is nullptr");
 	ASSERT(obj->clear(), "ObjectPool::release(): obj clear failed");
 	auto name = obj->GetClassName();
-	LOG_DEBUG(std::cout, "\nObjectPool::release():\nrelease CLASS: " << name);
 	auto& queue = m_objectPool[name];
 	queue.push(obj);
+	LOG_DEBUG("ObjectPool::release():release CLASS:{0}", name);
 }
 
 
@@ -47,13 +48,13 @@ void ObjectPool::clearPool() {
 			}
 			delete tmp;
 		}
-		LOG_DEBUG(std::cout, "\nObjectPool::clearPool():\nCleared CLASS:" << name);
+		LOG_DEBUG("ObjectPool::clearPool(): Cleared CLASS:{0}", name);
 	}
 	m_objectPool.clear();
 }
 
 ObjectPool::~ObjectPool() {
-	LOG_DEBUG(std::cout, "\nObjectPool::~ObjectPool()\n");
+	LOG_DEBUG( "ObjectPool::~ObjectPool()");
 	this->clearPool();
 }
 

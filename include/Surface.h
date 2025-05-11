@@ -20,7 +20,7 @@ public:
 
 	bool clear()override {
 		if (m_Surface == nullptr) {
-			LOG_ERROR(std::cerr, "Surface::clear(): Surface is not valid");
+			LOG_ERROR("Surface::clear(): Surface is not valid");
 			return false;
 		}
 		SDL_FreeSurface(m_Surface);
@@ -31,7 +31,7 @@ public:
 
 	bool setSurface(SDL_Surface* surface) {
 		if (surface == nullptr) {
-			LOG_ERROR(std::cerr, "Surface::setSurface(): Surface is nullptr");
+			LOG_ERROR("Surface::setSurface(): Surface is nullptr");
 			return false;
 		}
 		m_Surface = surface;
@@ -40,27 +40,27 @@ public:
 	bool setSurface(const std::string& filepath) {
 
 		m_Surface = IMG_Load(filepath.c_str());
-		ASSERT(m_Surface, "Surface::setSurface(): Surface is nullptr\n"<<IMG_GetError());
+		ASSERT(m_Surface, "Surface::setSurface(): Surface is nullptr");
 		return true;
 	}
 
 
 
-	//»æÖÆ ¿ÉÇÐ¸î£¬µ«²»ÄÜËõ·Å
+	//ç»˜åˆ¶ å¯åˆ‡å‰²ï¼Œä½†ä¸èƒ½ç¼©æ”¾
 	int blitSurface(const SDL_Rect* srcRect, Ptr dest, SDL_Rect* destRect);
 	//SDL_ConvertSurface(SDL_Surface*src,const SDL_PixelFormat* fmt,Uint32flags)
 	Ptr convertSurface(const SDL_PixelFormat* fmt, Uint32 flags);
 
-	//¾ØÐÎÌî³äº¯Êý
+	//çŸ©å½¢å¡«å……å‡½æ•°
 	int fillRect(const SDL_Rect* rect, Uint32 color);
-	//ÉèÖÃ¹Ø¼üÉ«²¢·µ»Ø¹Ø¼üÉ«
+	//è®¾ç½®å…³é”®è‰²å¹¶è¿”å›žå…³é”®è‰²
 	Uint32 mapRGB(Uint8 r, Uint8 g, Uint8 b)const;
 	Uint32 mapRGBA(Uint8 r, Uint8 g, Uint8 b, Uint8 a)const;
-	//ÉèÖÃ¹Ø¼üÉ«£¬¶ÔpngÍ¼Æ¬¸ñÊ½ÓÈÆäÓÐÐ§
+	//è®¾ç½®å…³é”®è‰²ï¼Œå¯¹pngå›¾ç‰‡æ ¼å¼å°¤å…¶æœ‰æ•ˆ
 	int setColorKey(Uint32 colorkey)const;
-	//»ñµÃ¶ÔÓ¦Î»ÖÃÏñËØµÄARGBÖµ
+	//èŽ·å¾—å¯¹åº”ä½ç½®åƒç´ çš„ARGBå€¼
 	Uint32 getARGB(int x, int y)const;
-	//»ìºÏÄ£Ê½
+	//æ··åˆæ¨¡å¼
 	int setSurfaceBlendMode(SDL_BlendMode blendMode);
 	int getSurfaceBlendMode(SDL_BlendMode* blendMode);
 

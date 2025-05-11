@@ -3,7 +3,8 @@
 #include <iostream>
 
 using namespace ECS;
-extern Coordinator gCoordinator;
+//extern Coordinator gCoordinator;
+//Coordinator::GetInstance
 GLRT_BEGIN
 
 
@@ -40,7 +41,7 @@ void WindowManager::ProcessEvents()
 
 	if (glfwGetKey(m_Window, GLFW_KEY_ESCAPE))
 	{
-		gCoordinator.SendEvent(Events::Window::QUIT);
+		Coordinator::GetInstance().SendEvent(Events::Window::QUIT);
 	}
 	else if (glfwGetKey(m_Window, GLFW_KEY_W))
 	{
@@ -75,7 +76,7 @@ void WindowManager::ProcessEvents()
 	{
 		Event event(Events::Window::INPUT);
 		event.SetParam(Events::Window::Input::INPUT, m_buttons);
-		gCoordinator.SendEvent(event);
+		Coordinator::GetInstance().SendEvent(event);
 	}
 
 }
