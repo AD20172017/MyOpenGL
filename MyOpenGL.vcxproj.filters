@@ -37,13 +37,13 @@
     <ClCompile Include="src\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\Camera.cpp">
+    <ClCompile Include="src\TCamera.cpp">
       <Filter>源文件\src</Filter>
     </ClCompile>
     <ClCompile Include="src\Hittable.cpp">
       <Filter>源文件\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scene.cpp">
+    <ClCompile Include="src\TScene.cpp">
       <Filter>源文件\src</Filter>
     </ClCompile>
     <ClCompile Include="src\Object.cpp">
@@ -65,6 +65,78 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\KeyEvent.h">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL\core\Camera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL\core\EnvironmentMap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL\core\Mesh.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL\core\Program.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL\core\Quad.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL\core\Renderer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL\core\Scene.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL\core\Shader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL\core\Texture.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL\loaders\GLTFLoader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL\loaders\Loader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test\GLSLTest.h">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\RadeonRays\bbox.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\RadeonRays\bvh.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\RadeonRays\bvh_translator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\RadeonRays\split_bvh.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\imguizmo\ImGuizmo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\imgui\imgui.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\imgui\imgui_draw.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\imgui\imgui_impl_opengl3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\imgui\imgui_impl_sdl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\imgui\imgui_stdlib.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\imgui\imgui_widgets.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\include\GL\gl3w.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -150,7 +222,145 @@
     <ClInclude Include="src\Core\Event.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\KeyCode.h">
+    <ClInclude Include="src\Core\KeyCodes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\MouseCodes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\MouseEvent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\Camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\Config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\EnvironmentMap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\Material.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\Mesh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\Program.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\Quad.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\Renderer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\Scene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\Shader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\ShaderIncludes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\core\Texture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\loaders\GLTFLoader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\loaders\Loader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\math\Mat4.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\math\MathUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\math\Vec2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\math\Vec3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\math\Vec4.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\tests\ajaxTestScene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\tests\boyTestScene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL\tests\cornellTestScene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\RadeonRays\bbox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\RadeonRays\bvh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\RadeonRays\bvh_translator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\RadeonRays\split_bvh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\oidn\include\OpenImageDenoise\config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\oidn\include\OpenImageDenoise\oidn.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\oidn\include\OpenImageDenoise\oidn.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\imguizmo\ImGuizmo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\stb\stb_image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\stb\stb_image_resize.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\stb\stb_image_write.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\imgui\imconfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\imgui\imgui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\imgui\imgui_impl_opengl3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\imgui\imgui_impl_sdl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\imgui\imgui_internal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\imgui\imgui_stdlib.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\imgui\imstb_rectpack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\imgui\imstb_textedit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\imgui\imstb_truetype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\GL\gl3w.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\include\GL\glcorearb.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

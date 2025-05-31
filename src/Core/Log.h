@@ -8,8 +8,8 @@ class Log
 public:
 	static void init();
 
-	static Ptr<spdlog::logger>& GetCoreLogger() { return m_CoreLogger; }
-	static Ptr<spdlog::logger>& GetClientLogger() { return m_ClientLogger; }
+	static Ptr<spdlog::logger> GetCoreLogger() { return m_CoreLogger; }
+	static Ptr<spdlog::logger> GetClientLogger() { return m_ClientLogger; }
 
 
 private:

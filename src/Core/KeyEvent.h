@@ -1,7 +1,9 @@
 #pragma once
 #include "Core/Event.h"
-#include "Core/KeyCode.h"
+#include "Core/KeyCodes.h"
 #include <sstream>
+#include "Object.h"
+using namespace GLRT;
 CPP_CORE_BEGIN
 //using namespace Key;
 class KeyEvent : public IEvent
@@ -18,12 +20,25 @@ protected:
 	KeyCode m_KeyCode;
 };
 
-class KeyPressedEvent : public KeyEvent
+
+//实例类
+class KeyPressedEvent : public KeyEvent, public Object
 {
+	OBJECT_SETUP(KeyPressedEvent)
 public:
+	static std::shared_ptr<KeyPressedEvent> acquire(const KeyCode keycode, bool isRepeat = false) {
+		KeyPressedEvent* p = new KeyPressedEvent(keycode, isRepeat);
+		std::shared_ptr<KeyPressedEvent> pRet = std::dynamic_pointer_cast< KeyPressedEvent >( ObjectPool::GetInstance()->acquire(p) );
+		if ( !( pRet && pRet->init() ) ) {
+			std::cout << " Acquire failed!! CLASS: " << ( "KeyPressedEvent" ) << std::endl; pRet.reset();
+		}
+		return pRet;
+	}
+private:
 	KeyPressedEvent(const KeyCode keycode, bool isRepeat = false)
 		: KeyEvent(keycode), m_IsRepeat(isRepeat) {
 	}
+public:
 
 	bool IsRepeat() const { return m_IsRepeat; }
 

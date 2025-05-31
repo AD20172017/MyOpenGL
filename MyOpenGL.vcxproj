@@ -19,17 +19,41 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dependencies\include\GL\gl3w.c" />
+    <ClCompile Include="Dependencies\include\imguizmo\ImGuizmo.cpp" />
+    <ClCompile Include="Dependencies\include\imgui\imgui.cpp" />
+    <ClCompile Include="Dependencies\include\imgui\imgui_draw.cpp" />
+    <ClCompile Include="Dependencies\include\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="Dependencies\include\imgui\imgui_impl_sdl.cpp" />
+    <ClCompile Include="Dependencies\include\imgui\imgui_stdlib.cpp" />
+    <ClCompile Include="Dependencies\include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Dependencies\RadeonRays\bbox.cpp" />
+    <ClCompile Include="Dependencies\RadeonRays\bvh.cpp" />
+    <ClCompile Include="Dependencies\RadeonRays\bvh_translator.cpp" />
+    <ClCompile Include="Dependencies\RadeonRays\split_bvh.cpp" />
     <ClCompile Include="src\Core\KeyEvent.h" />
     <ClCompile Include="src\Core\Log.cpp" />
+    <ClCompile Include="src\GLSL\core\Camera.cpp" />
+    <ClCompile Include="src\GLSL\core\EnvironmentMap.cpp" />
+    <ClCompile Include="src\GLSL\core\Mesh.cpp" />
+    <ClCompile Include="src\GLSL\core\Program.cpp" />
+    <ClCompile Include="src\GLSL\core\Quad.cpp" />
+    <ClCompile Include="src\GLSL\core\Renderer.cpp" />
+    <ClCompile Include="src\GLSL\core\Scene.cpp" />
+    <ClCompile Include="src\GLSL\core\Shader.cpp" />
+    <ClCompile Include="src\GLSL\core\Texture.cpp" />
+    <ClCompile Include="src\GLSL\loaders\GLTFLoader.cpp" />
+    <ClCompile Include="src\GLSL\loaders\Loader.cpp" />
     <ClCompile Include="src\SDLWindow.cpp" />
-    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\TCamera.cpp" />
     <ClCompile Include="src\Hittable.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Object.cpp" />
     <ClCompile Include="src\ObjectPool.cpp" />
-    <ClCompile Include="src\Scene.cpp" />
+    <ClCompile Include="src\TScene.cpp" />
     <ClCompile Include="src\Surface.cpp" />
     <ClCompile Include="src\WindowManager.cpp" />
+    <ClCompile Include="test\GLSLTest.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
@@ -37,6 +61,28 @@
     <None Include="src\Shaders\RT.frag" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dependencies\include\GL\gl3w.h" />
+    <ClInclude Include="Dependencies\include\GL\glcorearb.h" />
+    <ClInclude Include="Dependencies\include\imguizmo\ImGuizmo.h" />
+    <ClInclude Include="Dependencies\include\imgui\imconfig.h" />
+    <ClInclude Include="Dependencies\include\imgui\imgui.h" />
+    <ClInclude Include="Dependencies\include\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="Dependencies\include\imgui\imgui_impl_sdl.h" />
+    <ClInclude Include="Dependencies\include\imgui\imgui_internal.h" />
+    <ClInclude Include="Dependencies\include\imgui\imgui_stdlib.h" />
+    <ClInclude Include="Dependencies\include\imgui\imstb_rectpack.h" />
+    <ClInclude Include="Dependencies\include\imgui\imstb_textedit.h" />
+    <ClInclude Include="Dependencies\include\imgui\imstb_truetype.h" />
+    <ClInclude Include="Dependencies\include\stb\stb_image.h" />
+    <ClInclude Include="Dependencies\include\stb\stb_image_resize.h" />
+    <ClInclude Include="Dependencies\include\stb\stb_image_write.h" />
+    <ClInclude Include="Dependencies\oidn\include\OpenImageDenoise\config.h" />
+    <ClInclude Include="Dependencies\oidn\include\OpenImageDenoise\oidn.h" />
+    <ClInclude Include="Dependencies\oidn\include\OpenImageDenoise\oidn.hpp" />
+    <ClInclude Include="Dependencies\RadeonRays\bbox.h" />
+    <ClInclude Include="Dependencies\RadeonRays\bvh.h" />
+    <ClInclude Include="Dependencies\RadeonRays\bvh_translator.h" />
+    <ClInclude Include="Dependencies\RadeonRays\split_bvh.h" />
     <ClInclude Include="include\Camera.h" />
     <ClInclude Include="include\Def.h" />
     <ClInclude Include="include\Hittable.h" />
@@ -48,8 +94,10 @@
     <ClInclude Include="include\WindowManager.h" />
     <ClInclude Include="src\Core\Base.h" />
     <ClInclude Include="src\Core\Event.h" />
-    <ClInclude Include="src\Core\KeyCode.h" />
+    <ClInclude Include="src\Core\KeyCodes.h" />
     <ClInclude Include="src\Core\Log.h" />
+    <ClInclude Include="src\Core\MouseCodes.h" />
+    <ClInclude Include="src\Core\MouseEvent.h" />
     <ClInclude Include="src\ECS\ComponentArray.h" />
     <ClInclude Include="src\ECS\ComponentManager.h" />
     <ClInclude Include="src\ECS\Coordinator.h" />
@@ -59,6 +107,28 @@
     <ClInclude Include="src\ECS\System.h" />
     <ClInclude Include="src\ECS\SystemManager.h" />
     <ClInclude Include="src\ECS\Types.h" />
+    <ClInclude Include="src\GLSL\core\Camera.h" />
+    <ClInclude Include="src\GLSL\core\Config.h" />
+    <ClInclude Include="src\GLSL\core\EnvironmentMap.h" />
+    <ClInclude Include="src\GLSL\core\Material.h" />
+    <ClInclude Include="src\GLSL\core\Mesh.h" />
+    <ClInclude Include="src\GLSL\core\Program.h" />
+    <ClInclude Include="src\GLSL\core\Quad.h" />
+    <ClInclude Include="src\GLSL\core\Renderer.h" />
+    <ClInclude Include="src\GLSL\core\Scene.h" />
+    <ClInclude Include="src\GLSL\core\Shader.h" />
+    <ClInclude Include="src\GLSL\core\ShaderIncludes.h" />
+    <ClInclude Include="src\GLSL\core\Texture.h" />
+    <ClInclude Include="src\GLSL\loaders\GLTFLoader.h" />
+    <ClInclude Include="src\GLSL\loaders\Loader.h" />
+    <ClInclude Include="src\GLSL\math\Mat4.h" />
+    <ClInclude Include="src\GLSL\math\MathUtils.h" />
+    <ClInclude Include="src\GLSL\math\Vec2.h" />
+    <ClInclude Include="src\GLSL\math\Vec3.h" />
+    <ClInclude Include="src\GLSL\math\Vec4.h" />
+    <ClInclude Include="src\GLSL\tests\ajaxTestScene.h" />
+    <ClInclude Include="src\GLSL\tests\boyTestScene.h" />
+    <ClInclude Include="src\GLSL\tests\cornellTestScene.h" />
     <ClInclude Include="test\ECSTest.h" />
     <ClInclude Include="test\SDLSufaceTest.h" />
     <ClInclude Include="test\SDLWinTest.h" />
@@ -91,7 +161,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -122,17 +192,18 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;GLEW_STATIC;_WINDOWS;_CRT_SECURE_NO_WARNINGS;__STDC_FORMAT_MACROS;BX_CONFIG_ENABLE_MSVC_LEVEL4_WARNINGS=1;__STDC_LIMIT_MACROS;__STDC_CONSTANT_MACROS;IMGUI_DISABLE_OBSOLETE_FUNCTIONS;_WIN32;USE_DL_PREFIX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\spdlog\include;$(SolutionDir)src\ECS;$(SolutionDir)Dependencies\include;$(SolutionDir)include;$(SolutionDir)Dependencies\SDL_image-release-2.8.8\src;$(SolutionDir)Dependencies\include\glm;$(SolutionDir)test;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\17656\Documents\GameEngine\MyOpenGL\Dependencies\include\imgui;$(SolutionDir)Dependencies\oidn\include;$(SolutionDir)Dependencies\RadeonRays;$(SolutionDir)Dependencies;$(SolutionDir)Dependencies\spdlog\include;$(SolutionDir)src\ECS;$(SolutionDir)Dependencies\include;$(SolutionDir)include;$(SolutionDir)Dependencies\SDL_image-release-2.8.8\src;$(SolutionDir)Dependencies\include\glm;$(SolutionDir)test;$(SolutionDir)Dependencies\include\stb;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalOptions>/utf-8</AdditionalOptions>
+      <DisableSpecificWarnings>4996  </DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;shell32.lib;glew32s.lib;gdi32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;glad.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\libs;$(SolutionDir)Dependencies\oidn\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;shell32.lib;glew32s.lib;gdi32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;glad.lib;OpenImageDenoise.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <AdditionalOptions>/NODEFAULTLIB:msvcrt.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -159,7 +230,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\17656\Documents\GameEngine\MyOpenGL\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\17656\Documents\GameEngine\MyOpenGL\Dependencies\include\stb;D:\17656\Documents\GameEngine\MyOpenGL\Dependencies\spdlog\include;D:\17656\Documents\GameEngine\MyOpenGL\Dependencies;D:\17656\Documents\GameEngine\MyOpenGL\include;D:\17656\Documents\GameEngine\MyOpenGL\Dependencies\include\imgui;D:\17656\Documents\GameEngine\MyOpenGL\Dependencies\include;D:\17656\Documents\GameEngine\MyOpenGL\Dependencies\RadeonRays;D:\17656\Documents\GameEngine\MyOpenGL\Dependencies\oidn\include;D:\17656\Documents\GameEngine\MyOpenGL\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <UndefinePreprocessorDefinitions>/D_UNICODE;</UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -9,6 +9,8 @@
 ECS_BEGIN
 class Coordinator
 {
+private:
+	Coordinator() = default;
 public:
 
 	static Coordinator& GetInstance()

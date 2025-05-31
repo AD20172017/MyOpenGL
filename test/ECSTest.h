@@ -7,7 +7,6 @@ using namespace GLRT;
 using namespace std;
 using namespace ECS;
 
-Coordinator gCoordinator;
 namespace TEST {
 
 
@@ -21,14 +20,14 @@ namespace TEST {
 
 	int ECSTest()
 	{
-		gCoordinator.Init();
+		Coordinator::GetInstance().Init();
 
 
 		WindowManager windowManager;
 		windowManager.Init("Nexus", 1920, 1080, 0, 0);
 
 
-		gCoordinator.AddEventListener(FUNCTION_LISTENER(Events::Window::QUIT, QuitHandler));
+		Coordinator::GetInstance().AddEventListener(FUNCTION_LISTENER(Events::Window::QUIT, QuitHandler));
 		float dt = 0.0f;
 
 		while (!quit)

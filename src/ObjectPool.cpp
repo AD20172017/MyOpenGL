@@ -33,7 +33,7 @@ void ObjectPool::release(Object* obj) {
 	auto name = obj->GetClassName();
 	auto& queue = m_objectPool[name];
 	queue.push(obj);
-	LOG_DEBUG("ObjectPool::release():release CLASS:{0}", name);
+	LOG_DEBUG("ObjectPool::release(): CLASS:{0}", name);
 }
 
 
@@ -47,12 +47,12 @@ void ObjectPool::clearPool() {
 				continue;
 			}
 			delete tmp;
+			LOG_DEBUG("ObjectPool::clearPool(): CLASS:{0}", name);
 		}
-		LOG_DEBUG("ObjectPool::clearPool(): Cleared CLASS:{0}", name);
 	}
 	m_objectPool.clear();
 }
-
+//析构貌似是不可控的
 ObjectPool::~ObjectPool() {
 	LOG_DEBUG( "ObjectPool::~ObjectPool()");
 	this->clearPool();
